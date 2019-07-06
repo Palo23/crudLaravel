@@ -62,6 +62,19 @@ class PagesController extends Controller
 
     }
 
+    public function eliminar(Request $request, $id){
+
+        $notaEliminar = App\Nota::findOrFail($id);
+
+        $notaEliminar->delete();
+      //  $notaEliminar->id = $request->id;
+
+      //  $notaEliminar->delete();
+
+        return back()->with('mensaje', "Nota eliminada!");
+
+    }
+
     public function fotos()
     {
         return view('fotos');
